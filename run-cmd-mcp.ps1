@@ -58,7 +58,7 @@ while ($true) {
         if ($method -eq "list_tools") {
             $tool = @{
                 name = "run_cmd"
-                description = "Windows 명령어(cmd)를 실행하고 출력 결과를 반환합니다."
+                description = "Windows 명령어(cmd)에서 dir, mkdir 등의 명령을 실행하고 출력 결과를 반환합니다."
                 input_schema = @{
                     type = "object"
                     properties = @{

@@ -1,0 +1,200 @@
+{
+  "models": [
+    {
+      "title": "S-Core/Qwen2.5-Coder-32B-Instruct",
+      "model": "S-Core/Qwen2.5-Coder-32B-Instruct",
+      "provider": "openai",
+      // "systemMessage": "무조건 '확인했습니다.' 라고 답변해줘.",
+      "systemMessage": "한국어로 답변해줘생성한 코드 스니펫의 시작에 'AI AD '와 생성된 라인수를 합쳐서 한줄로 주석으로 달아줘.생성한 코드 스니펫의 끝에는 'AI END'를 한줄로 주석으로 달아줘.",
+      "apiKey": "sk-6RBOJbhSyUOTfkyLIM3r3Q",
+      "apiBase": "http://172.21.135.113:4000/v1"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "S-Core/Qwen2.5-Coder-32B-Instruct",
+    "model": "S-Core/Qwen2.5-Coder-32B-Instruct",
+    "provider": "openai",
+    "systemMessage": "한국어로 답변해줘",
+    "apiKey": "sk-6RBOJbhSyUOTfkyLIM3r3Q",
+    "apiBase": "http://172.21.135.113:4000/v1"
+  },
+  "embeddingsProvider": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "provider": "huggingface-tei",
+    "apiBase": "http://172.21.135.113:8081",
+    "maxChunkSize": 256,
+    "maxBatchSize": 128
+  },
+  "tabAutocompleteOptions": {
+    "template": "<|fim_prefix|>{{{prefix}}}<|fim_suffix|>{{{suffix}}}<|fim_middle|>"
+  },
+  "contextProviders": [
+    {
+      "name": "file"
+    },
+    {
+      "name": "code"
+    },
+    {
+      "name": "diff"
+    },
+    {
+      "name": "currentFile"
+    },
+    {
+      "name": "terminal"
+    },
+    {
+      "name": "web",
+      "params": {
+        "n": 5
+      }
+    },
+    {
+      "name": "open",
+      "params": {
+        "onlyPinned": true
+      }
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "url"
+    },
+    {
+      "name": "clipboard"
+    },
+    {
+      "name": "tree"
+    },
+    {
+      "name": "problems"
+    },
+    {
+      "name": "debugger"
+    },
+    {
+      "name": "repo-map",
+      "params": {
+        "includeSignatures": false // default true
+      }
+    },
+    {
+      "name": "os"
+    },
+    {
+      "name": "issue",
+      "params": {
+        "repos": [
+          {
+            "owner": "continuedev",
+            "repo": "continue"
+          }
+        ],
+        "githubToken": "ghp_xxx"
+      }
+    },
+    {
+      "name": "database",
+      "params": {
+        "connections": [
+          {
+            "name": "examplePostgres",
+            "connection_type": "postgres",
+            "connection": {
+              "user": "username",
+              "host": "localhost",
+              "database": "exampleDB",
+              "password": "yourPassword",
+              "port": 5432
+            }
+          },
+          {
+            "name": "exampleMssql",
+            "connection_type": "mssql",
+            "connection": {
+              "user": "username",
+              "server": "localhost",
+              "database": "exampleDB",
+              "password": "yourPassword"
+            }
+          },
+          {
+            "name": "exampleSqlite",
+            "connection_type": "sqlite",
+            "connection": {
+              "filename": "/path/to/your/sqlite/database.db"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "codebase",
+      "params": {
+        "title": "Codebase",
+        "description": "Local codebase context provider"
+      }
+    },
+    {
+      "name": "http",
+      "params": {
+        "url": "https://api.example.com/v1/users"
+      }
+    },
+    {
+      "name": "folder",
+      "params": {
+        "title": "Folder",
+        "description": "Folder context provider"
+      }
+    },
+    {
+      "name": "commit",
+      "params": {
+        "Depth": 50,
+        "LastXCommitsDepth": 10
+      }
+    },
+    {
+      "name": "Knox",
+      "params": {
+        "url": "https://localhost:5000/retrieve",
+        "title": "Knox",
+        "description": "Knox RAG",
+        "displayTitle": "Knox RAG Title"
+      }
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate a shell command"
+    },
+    {
+      "name": "commit",
+      "description": "Generate a git commit message"
+    }
+  ],
+  "experimental": {
+    "modelContextProtocolServers": [
+      {
+        "transport": {
+          "type": "stdio",
+          "command": "powershell",
+          "args": [
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            "D:\\git\\MCPTest\\run-cmd-mcp.ps1"
+          ]
+        }
+      }
+    ]
+  }
+}
